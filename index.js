@@ -117,12 +117,12 @@ let employerId = 0;
 
   meals() {
     const employerMeals =  [];
-    this.deliveries().forEach(d => {
-    let m = store.meals.find(m => {
-      return m.id === d.mealId}
+    this.deliveries().forEach(delivery => {
+    let m = store.meals.find(meal => {
+      return meal.id === delivery.mealId}
       );
-    if (employerMeals.find(e => {
-      return e.id === m.id}) === undefined) {
+    if (employerMeals.find(employee => {
+      return employee.id === m.id}) === undefined) {
         employerMeals.push(m);
       }
     })
