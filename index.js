@@ -98,48 +98,49 @@ let employerId = 0;
     this.name = name;
     store.employers.push(this);
     }
+
     employees() {
     return store.customers.filter(customer => {
       return customer.employerId === this.id
       })
     }
 
-  deliveries() {
-    let employerDeliveries =  [];
-      store.deliveries.forEach(delivery => {
-        let c = store.customers.find(customer => {
-          return customer.id === delivery.customerId});
-          if (c.employerId === this.id) {
-            employerDeliveries.push(delivery);
-          }
-        })
-        return employerDeliveries;
-    }
-
-  meals() {
-    const employerMeals =  [];
-    this.deliveries().forEach(delivery => {
-    let m = store.meals.find(meal => {
-      return meal.id === delivery.mealId}
-      );
-    if (employerMeals.find(employee => {
-      return employee.id === m.id}) === undefined) {
-        employerMeals.push(m);
+    deliveries() {
+      let employerDeliveries =  [];
+        store.deliveries.forEach(delivery => {
+          let c = store.customers.find(customer => {
+            return customer.id === delivery.customerId});
+            if (c.employerId === this.id) {
+              employerDeliveries.push(delivery);
+            }
+          })
+          return employerDeliveries;
       }
-    })
-    return employerMeals;
-  }
 
-  mealTotals() {
-    const employerMealsCount =  {};
+    meals() {
+      const employerMeals =  [];
       this.deliveries().forEach(delivery => {
-        if (Object.keys( employerMealsCount).indexOf( delivery.mealId.toString()) === -1) {
-          employerMealsCount[delivery.mealId] = 1;
-        }
-        else {
-          ++employerMealsCount[delivery.mealId];
+      let m = store.meals.find(meal => {
+        return meal.id === delivery.mealId}
+        );
+      if (employerMeals.find(employee => {
+        return employee.id === m.id}) === undefined) {
+          employerMeals.push(m);
         }
       })
-      return employerMealsCount;
+      return employerMeals;
     }
-  }
+
+    mealTotals() {
+      const employerMealsCount =  {};
+        this.deliveries().forEach(delivery => {
+          if (Object.keys( employerMealsCount).indexOf( delivery.mealId.toString()) === -1) {
+            employerMealsCount[delivery.mealId] = 1;
+          }
+          else {
+            ++employerMealsCount[delivery.mealId];
+          }
+        })
+        return employerMealsCount;
+      }
+    }
