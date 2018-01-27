@@ -105,11 +105,11 @@ let employerId = 0;
 
   deliveries() {
     let employerDeliveries =  [];
-      store.deliveries.forEach(d => {
-        let c = store.customers.find(c => {
-          return c.id === d.customerId});
+      store.deliveries.forEach(delivery => {
+        let c = store.customers.find(customer => {
+          return customer.id === delivery.customerId});
           if (c.employerId === this.id) {
-            employerDeliveries.push(d);
+            employerDeliveries.push(delivery);
           }
         })
         return employerDeliveries;
