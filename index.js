@@ -41,7 +41,7 @@ let mealId = 0;
         }
         store.meals.push(this);
     }
-
+    //returns all of the deliveries that delivered the particular meal
     deliveries() {
     return store.deliveries.filter(delivery => {
       return delivery.mealId === this.id
