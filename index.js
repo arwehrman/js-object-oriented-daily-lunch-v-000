@@ -98,7 +98,7 @@ let employerId = 0;
     this.name = name;
     store.employers.push(this);
     }
-
+    //returns a list of customers employed by the employer
     employees() {
     return store.customers.filter(customer => {
       return customer.employerId === this.id
