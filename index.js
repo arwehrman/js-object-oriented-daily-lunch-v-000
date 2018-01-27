@@ -104,7 +104,7 @@ let employerId = 0;
       return customer.employerId === this.id
       })
     }
-
+    //returns a list of deliveries ordered by the employer's employees
     deliveries() {
       let employerDeliveries =  [];
         store.deliveries.forEach(delivery => {
@@ -116,7 +116,7 @@ let employerId = 0;
           })
           return employerDeliveries;
       }
-
+      //returns a list of unique meals ordered by the employer's employees
     meals() {
       const employerMeals =  [];
       this.deliveries().forEach(delivery => {
@@ -130,7 +130,7 @@ let employerId = 0;
       })
       return employerMeals;
     }
-
+    //returns a JS object displaying each respective meal id ordered by the employer's employees
     mealTotals() {
       const employerMealsCount =  {};
         this.deliveries().forEach(delivery => {
