@@ -47,7 +47,7 @@ let mealId = 0;
       return delivery.mealId === this.id
       })
     }
-
+    //returns all of the customers who have had the meal delivered
     customers() {
     return this.deliveries().map(delivery => {
       return store.customers.find(customer => {
@@ -55,7 +55,7 @@ let mealId = 0;
         })
       })
     }
-
+    //class method that orders the meals by their price
     static byPrice() {
       return store.meals.sort( (meal1,meal2) => {
         return meal2.price - meal1.price;
@@ -76,7 +76,7 @@ let deliveryId = 0;
     }
     store.deliveries.push(this);
     }
-
+    //returns the meal associated with the delivery
     meal() {
     return store.meals.find(meal => {
       return meal.id === this.mealId
