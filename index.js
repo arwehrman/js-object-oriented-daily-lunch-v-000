@@ -30,38 +30,38 @@ let customerId = 0;
 
 let mealId = 0;
 
-class Meal {
-  constructor(title,price) {
-    this.id = ++mealId;
-    if (title) {
-        this.title = title;
-      }
-    if (price) {
-        this.price = price;
-      }
-      store.meals.push(this);
-  }
+  class Meal {
+    constructor(title,price) {
+      this.id = ++mealId;
+      if (title) {
+          this.title = title;
+        }
+      if (price) {
+          this.price = price;
+        }
+        store.meals.push(this);
+    }
 
-  deliveries() {
-  return store.deliveries.filter(delivery => {
-    return delivery.mealId === this.id
-    })
-  }
-
-  customers() {
-  return this.deliveries().map(delivery => {
-    return store.customers.find(customer => {
-      return customer.id === delivery.customerId
+    deliveries() {
+    return store.deliveries.filter(delivery => {
+      return delivery.mealId === this.id
       })
-    })
-  }
+    }
 
-  static byPrice() {
-    return store.meals.sort( (meal1,meal2) => {
-      return meal2.price - meal1.price;
-    })
+    customers() {
+    return this.deliveries().map(delivery => {
+      return store.customers.find(customer => {
+        return customer.id === delivery.customerId
+        })
+      })
+    }
+
+    static byPrice() {
+      return store.meals.sort( (meal1,meal2) => {
+        return meal2.price - meal1.price;
+      })
+    }
   }
-}
 
 let deliveryId = 0;
 
