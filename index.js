@@ -116,12 +116,18 @@ let employerId = 0;
     }
 
   meals() {
-    let all = this.deliveries().map(delivery =>{
-      return delivery.meal();
-    });
-    let uniqueMeals = [...new Set{allMeals)];
-      return uniqueMeals;
-    }
+    const employerMeals =  [];
+    this.deliveries().forEach(delivery => {
+    let m = store.meals.find(meal => {
+      return meal.id === delivery.mealId}
+      );
+    if (employerMeals.find(employee => {
+      return employee.id === m.id}) === undefined) {
+        employerMeals.push(m);
+      }
+    })
+    return employerMeals;
+  }
 
   mealTotals() {
     const employerMealsCount =  {};
