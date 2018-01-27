@@ -131,12 +131,12 @@ let employerId = 0;
 
   mealTotals() {
     const employerMealsCount =  {};
-      this.deliveries().forEach(d => {
-        if (Object.keys( employerMealsCount).indexOf( d.mealId.toString()) === -1) {
-          employerMealsCount[d.mealId] = 1;
+      this.deliveries().forEach(delivery => {
+        if (Object.keys( employerMealsCount).indexOf( delivery.mealId.toString()) === -1) {
+          employerMealsCount[delivery.mealId] = 1;
         }
         else {
-          ++employerMealsCount[d.mealId];
+          ++employerMealsCount[delivery.mealId];
         }
       })
     console.log(employerMealsCount);
