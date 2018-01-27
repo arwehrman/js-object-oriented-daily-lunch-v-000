@@ -139,7 +139,7 @@ let employerId = 0;
           ++employerMealsCount[delivery.mealId];
         }
       })
-    console.log(employerMealsCount);
+    //console.log(employerMealsCount);
     return employerMealsCount;
   }
 }
