@@ -10,9 +10,9 @@ let customerId = 0;
     }
 
     meals() {
-      return this.deliveries().map(d => {
-        return store.meals.find(m => {
-          return m.id === d.mealId
+      return this.deliveries().map(delivery => {
+        return store.meals.find(meal => {
+          return meal.id === delivery.mealId
         })
       })
     }
