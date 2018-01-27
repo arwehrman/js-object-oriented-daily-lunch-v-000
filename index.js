@@ -139,6 +139,6 @@ let employerId = 0;
           ++employerMealsCount[delivery.mealId];
         }
       })
-    return employerMealsCount;
+      return employerMealsCount;
+    }
   }
-}
