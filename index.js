@@ -8,7 +8,7 @@ let customerId = 0;
       if (employer) this.employerId = employer.id;
       store.customers.push(this);
     }
-
+    //returns all of the meals that a customer has had delivered
     meals() {
       return this.deliveries().map(delivery => {
         return store.meals.find(meal => {
@@ -16,7 +16,7 @@ let customerId = 0;
         })
       })
     }
-
+    //returns all of the deliveries that customer has received
     deliveries() {
       return store.deliveries.filter(delivery => {
         return delivery.customerId === this.id
