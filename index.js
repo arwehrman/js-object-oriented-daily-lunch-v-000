@@ -82,6 +82,7 @@ let deliveryId = 0;
       return meal.id === this.mealId
       })
     }
+    //returns the customer associated with the delivery
     customer() {
     return store.customers.find(customer => {
       return customer.id === this.customerId
