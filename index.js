@@ -18,8 +18,8 @@ let customerId = 0;
     }
 
     deliveries() {
-      return store.deliveries.filter(d => {
-        return d.customerId === this.id
+      return store.deliveries.filter(delivery => {
+        return delivery.customerId === this.id
       })
     }
 
