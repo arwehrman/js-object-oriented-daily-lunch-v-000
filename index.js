@@ -98,8 +98,8 @@ let employerId = 0;
     store.employers.push(this);
     }
     employees() {
-    return store.customers.filter(c => {
-      return c.employerId === this.id
+    return store.customers.filter(customer => {
+      return customer.employerId === this.id
       })
     }
 
