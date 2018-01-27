@@ -22,7 +22,7 @@ let customerId = 0;
         return delivery.customerId === this.id
       })
     }
-
+    //returns the total amount that the customer has spent
     totalSpent() {
     return this.meals().reduce((a,b) => a + b.price, 0)
     }
